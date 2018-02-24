@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>User</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'user_app/css/style.css' %}" media="screen" title="no title"  charset="utf-8">
+    </head>
+    <body>
+        <div>
+            <a href="/user/logout" class="navbar1">Logout</a>
+        </div>
+        <div class="oneperpage">
+            <h3>Welcome, {{ this_user.first_name }}</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Name</th>
+                        <th>Username</th>
+                        <th>Alias</th>
+                        <th>Date of Birth</th>
+                        <th>Start Time</th>
+                        <th>End Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in other_users %}
+                    <tr>
+                        <td>{{ user.first_name }}</td>
+                        <td>{{ user.last_name }}</td>
+                        <td>{{ user.name }}</td>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.alias }}</td>
+                        <td>{{ user.dob }}</td>
+                        <td>{{ user.start_time }}</td>
+                        <td>{{ user.end_time }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>
